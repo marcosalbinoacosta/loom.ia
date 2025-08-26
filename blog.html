@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - LOOM.IA</title>
+    <meta name="description" content="Lee los últimos artículos de LOOM.IA sobre ciberseguridad, tendencias, consejos y noticias para PYMES argentinas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="LOOM.IA - Ir al inicio">LOOM.<span class="accent-text">IA</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+                <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+                <li><a href="index.html#casos" aria-label="Ir a la sección de casos de éxito">Casos de Éxito</a></li>
+                <li><a href="blog.html" class="active" aria-label="Ir a la página del blog">Blog</a></li>
+                <li><a href="index.html#nosotros" aria-label="Ir a la sección sobre nosotros">Sobre nosotros</a></li>
+                <li><a href="index.html#contacto" aria-label="Ir a la sección de contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Abrir menú de navegación móvil" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section blog-hero" role="main" aria-labelledby="blog-title">
+            <div class="container">
+                <h1 id="blog-title">Blog de Ciberseguridad</h1>
+                <p class="subtitle">Consejos, análisis y las últimas noticias para proteger tu negocio.</p>
+            </div>
+        </section>
+
+        <section class="section blog-posts">
+            <div class="container">
+                <div class="posts-grid">
+                    <article class="blog-card">
+                        <img src="https://www.dantia.es/wp-content/uploads/2014/09/seguridad-en-la-nube.jpg" alt="Ilustración de seguridad en la nube" class="post-image">
+                        <div class="post-content">
+                            <span class="post-category">Tecnología</span>
+                            <h3 class="post-title">Seguridad en la nube: Claves para PYMES</h3>
+                            <p class="post-excerpt">La migración a la nube es clave, pero ¿estás seguro? Descubre los pilares fundamentales para proteger tus datos y aplicaciones en entornos cloud.</p>
+                            <a href="https://cloud.google.com/learn/what-is-cloud-data-security?hl=es-419" class="read-more">Leer más &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://victoravilaabogado.com/wp-content/uploads/2024/12/Phising-1080x675.jpg" alt="Ilustración de una red y un candado" class="post-image">
+                        <div class="post-content">
+                            <span class="post-category">Amenazas</span>
+                            <h3 class="post-title">Phishing y Ransomware: ¿Cómo protegerte?</h3>
+                            <p class="post-excerpt">Dos de las amenazas más comunes para empresas. Te mostramos cómo identificarlas a tiempo y los pasos que debes seguir para mitigar los riesgos.</p>
+                            <a href="https://www.skillcast.com/blog/sme-phishing-attacks-protection" class="read-more">Leer más &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://lemonlearning.com/hs-fs/hubfs/Imported_Blog_Media/Certificacion-ISO-27001-visual-2.jpg?width=980&height=653&name=Certificacion-ISO-27001-visual-2.jpg" alt="Ilustración de una persona con un manual de regulaciones" class="post-image">
+                        <div class="post-content">
+                            <span class="post-category">Normativas</span>
+                            <h3 class="post-title">Guía rápida para la certificación ISO 27001</h3>
+                            <p class="post-excerpt">Lograr la certificación ISO 27001 es un paso crucial. Conoce los requisitos principales y cómo nuestro software facilita el proceso de cumplimiento.</p>
+                            <a href="https://www.nqa.com/es-es/certification/standards/iso-27001/implementation" class="read-more">Leer más &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LOOM.IA. Todos los derechos reservados. Ciberseguridad para PYMES argentinas.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
