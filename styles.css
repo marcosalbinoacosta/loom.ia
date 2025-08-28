@@ -646,6 +646,27 @@ footer {
 
     .mobile-menu {
         display: flex;
+        z-index: 1001; /* Asegura que esté por encima de otros elementos */
+    }
+    
+    nav {
+        justify-content: space-between;
+        padding: 1rem 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links.is-open {
+        display: flex;
+    }
+    
+    .logo {
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    .cta-nav-button {
+        display: none;
     }
 
     .hero h1 {
@@ -671,10 +692,6 @@ footer {
 
     .section {
         padding: 3rem 1rem;
-    }
-
-    nav {
-        padding: 1rem;
     }
 }
 
@@ -798,3 +815,4 @@ footer {
 .nav-links a.active::after {
     width: 100%;
 }
+
