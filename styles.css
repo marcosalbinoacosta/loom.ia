@@ -13,8 +13,8 @@ body {
 }
 
 :root {
-    --primary-blue: #2A5A85;
-    --accent-green: #6CC36C;
+    --primary-blue: #1E3B5E;
+    --accent-green: #64B54C;
     --light-gray: #F2F4F8;
     --dark-text: #4A4A4A;
     --white: #FFFFFF;
@@ -46,12 +46,26 @@ nav {
     padding: 1rem 2rem;
 }
 
+/* Estilo del logo y alineación */
 .logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
     text-decoration: none;
     letter-spacing: -1px;
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--primary-blue);
+}
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    margin-right: -20px;
+    vertical-align: middle;
+}
+
+.logo-text {
+    line-height: 1;
 }
 
 .logo .accent-text {
@@ -62,6 +76,7 @@ nav {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -132,6 +147,30 @@ nav {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Estilo del botón de navegación (Acceso Clientes) */
+.cta-nav-button {
+    background: transparent;
+    color: var(--primary-blue);
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    border: 1px solid var(--primary-blue);
+    white-space: nowrap;
+}
+
+.cta-nav-button:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(30, 59, 94, 0.2);
+}
+
+.cta-nav-button::after {
+    display: none;
 }
 
 /* Main Content */
@@ -358,7 +397,7 @@ main {
     padding: 0.7rem 1.5rem;
     border-radius: 30px;
     width: 100%;
-    margin-top: auto; /* Empuja el botón hacia abajo */
+    margin-top: auto;
     transition: all 0.3s ease;
 }
 
@@ -380,11 +419,10 @@ main {
 }
 
 .card-back .back-to-front:hover {
-    background: #1e4566; /* Un tono más oscuro */
+    background: #1e4566;
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Testimonials Section */
 .testimonials {
@@ -435,18 +473,47 @@ main {
 }
 
 /* About Section */
-.about {
-    background: var(--light-gray);
+/* Sección "Sobre nosotros" con nuevo diseño */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
 }
 
-.about-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    color: var(--dark-text);
+.about-text-content {
+    order: 1;
+    text-align: left;
 }
+
+.about-image-container {
+    order: 2;
+    text-align: center;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-text-content {
+        order: 2;
+        text-align: center;
+    }
+    
+    .about-image-container {
+        order: 1;
+    }
+}
+
 
 /* Contact Section */
 .contact {
