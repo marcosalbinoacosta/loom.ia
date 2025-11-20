@@ -18,12 +18,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header role="banner">
         <nav role="navigation" aria-label="Navegación principal">
             <a href="#inicio" class="logo" aria-label="LOOM.IA - Ir al inicio">
-                <img src="https://i.postimg.cc/WbBJLqrf/Gemini-Generated-Image-x618n7x618n7x618-1.png" alt="Logo de LOOM.IA" class="logo-img">
+                <img src="https://i.postimg.cc/XNrRM23P/img-removebg-preview.png" alt="Logo de LOOM.IA" class="logo-img">
                 <span class="logo-text">LOOM.<span class="accent-text">IA</span></span>
             </a>
             <ul class="nav-links">
@@ -45,13 +47,41 @@
 
     <main>
         <section id="inicio" class="hero" role="main" aria-labelledby="hero-title">
+            <div class="hero-bg-overlay"></div>
+            
             <div class="hero-content">
-                <h1 id="hero-title">Ciberseguridad inteligente, a medida de tu negocio</h1>
-                <p class="subtitle">Protegé tu negocio con servicios accesibles de monitoreo, cumplimiento normativo y capacitación en ciberseguridad.</p>
-                <p class="description">En LOOM.IA ofrecemos soluciones diseñadas para pequeñas y medianas empresas que necesitan un aliado confiable para enfrentar los desafíos digitales. Con nosotros, la ciberseguridad deja de ser un lujo para convertirse en un recurso estratégico.</p>
-                <a href="#contacto" class="cta-button" aria-label="Solicitar una demo gratuita">Solicitar una demo</a>
+                <h1 id="hero-title">
+                    Automatizá con IA.  <br>
+                    <span class="text-gradient">Protegé con Expertos.</span>
+                </h1>
+                
+                <p class="subtitle">
+                    Llevamos tu negocio al siguiente nivel: Implementación de <strong>Agentes de IA,</strong> optimización de procesos y formación de talento, protegiendo cada paso de tu crecimiento.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#contacto" class="cta-button primary" aria-label="Solicitar diagnóstico">Solicitar Diagnóstico</a>
+                    <a href="#servicios" class="cta-button secondary" aria-label="Conocer nuestra tecnología">Ver Tecnología</a>
+                </div>
             </div>
         </section>
+
+        <div class="trust-bar">
+            <div class="container trust-content">
+                <div class="trust-item">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Metodologías basadas en <strong>ISO 27001</strong></span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-robot"></i>
+                    <span>Integración de <strong>Inteligencia Artificial</strong></span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Soporte <strong>Especializado</strong></span>
+                </div>
+            </div>
+        </div>
 
         <section id="servicios" class="section services" role="region" aria-labelledby="services-title">
             <div class="container">
@@ -62,11 +92,16 @@
                         <div class="card-inner">
                             <div class="card-front">
                                 <div class="service-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart-rate-monitor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" /><path d="M7 20h10" /><path d="M9 16v4" /><path d="M15 16v4" /><path d="M7 10h2l2 3l2 -6l1 3h3" /></svg>
-                                </div>
+                                    </div>
                                 <h3>Seguridad Administrada y Monitoreo 24/7</h3>
-                                <p>Supervisamos tus sistemas día y noche, detectamos incidentes y respondemos rápidamente para asegurar la continuidad de tu negocio.</p>
-                                <button class="service-button flip-button">Más información</button>
+                                <p>Supervisamos tus sistemas día y noche...</p>
+                                
+                                <div class="card-actions">
+                                    <button class="service-button flip-button">Ver detalles completos</button>
+                                    <div class="flip-indicator">
+                                        <i class="fas fa-rotate"></i>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="card-back">
@@ -87,11 +122,16 @@
                         <div class="card-inner">
                             <div class="card-front">
                                 <div class="service-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-text-shield"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 3v4a.997 .997 0 0 0 1 1h4" /><path d="M11 21h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v3.5" /><path d="M8 9h1" /><path d="M8 12.994l3 0" /><path d="M8 16.997l2 0" /><path d="M21 15.994c0 4 -2.5 6 -3.5 6s-3.5 -2 -3.5 -6c1 0 2.5 -.5 3.5 -1.5c1 1 2.5 1.5 3.5 1.5" /></svg>
-                                </div>
+                                    </div>
                                 <h3>Consultoría y Cumplimiento Normativo</h3>
-                                <p>Te ayudamos a cumplir con ISO 27001, estándares NIST y la certificación SOC 2, adaptando las mejores prácticas para proteger tu PYME y asegurar su crecimiento.</p>
-                                <button class="service-button flip-button">Más información</button>
+                                <p>Te ayudamos a cumplir con ISO 27001, estándares NIST y la certificación SOC 2</p>
+                                
+                                <div class="card-actions">
+                                    <button class="service-button flip-button">Ver detalles completos</button>
+                                    <div class="flip-indicator">
+                                        <i class="fas fa-rotate"></i>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="card-back">
@@ -112,11 +152,16 @@
                         <div class="card-inner">
                             <div class="card-front">
                                 <div class="service-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-triangle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
+                                    </div>
+                                <h3>Capacitaciones en Ciberseguridad e IA</h3>
+                                <p>Empoderamos a tu equipo y automatizamos la protección.</p>
+                                
+                                <div class="card-actions">
+                                    <button class="service-button flip-button">Ver detalles completos</button>
+                                    <div class="flip-indicator">
+                                        <i class="fas fa-rotate"></i>
+                                    </div>
                                 </div>
-                                <h3>Capacitaciones en Ciberseguridad</h3>
-                                <p>Empoderamos a tu equipo y automatizamos la protección. Nuestra plataforma fortalece la cultura de seguridad digital de tu empresa.</p>
-                                <button class="service-button flip-button">Más información</button>
                             </div>
                             
                             <div class="card-back">
@@ -124,8 +169,8 @@
                                 <ul>
                                     <li>Simulaciones medibles de pshising.</li>
                                     <li>Cursos gamificados de seguridad.</li>
-                                    <li>Talleres prácticos sobre amenazas.</li>
-                                    <li>Certificaciones internas para el equipo.                </li>
+                                    <li>Talleres prácticos sobre IA aplicadas al trabajo real.</li>
+                                    
                                 </ul>
                                 <a href="#contacto" class="service-button back-button">Contactar ahora</a>
                                 <button class="back-to-front flip-button">Volver</button>
@@ -137,20 +182,25 @@
                         <div class="card-inner">
                             <div class="card-front">
                                 <div class="service-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-cog"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M19.001 15.5v1.5" /><path d="M19.001 21v1.5" /><path d="M22.032 17.25l-1.299 .75" /><path d="M17.27 20l-1.3 .75" /><path d="M15.97 17.25l1.3 .75" /><path d="M20.733 20l1.3 .75" /></svg>
+                                    </div>
+                                <h3>Implementación de IA y automatizaciones</h3>
+                                <p>Dejá las tareas repetitivas en manos de robots de software. Implementamos <strong>n8n</strong> y agentes de IA para que tu equipo se enfoque en lo importante.</p>
+                                
+                                <div class="card-actions">
+                                    <button class="service-button flip-button">Ver detalles completos</button>
+                                    <div class="flip-indicator">
+                                        <i class="fas fa-rotate"></i>
+                                    </div>
                                 </div>
-                                <h3>Asesoría Estratégica (vCISO)</h3>
-                                <p>Ponemos a tu disposición expertos en ciberseguridad que actúan como tu director de seguridad virtual, guiando la estrategia digital de tu empresa.</p>
-                                <button class="service-button flip-button">Más información</button>
                             </div>
                             
                             <div class="card-back">
-                                <h4>Funciones de vCISO</h4>
+                                <h4>Soluciones de Eficiencia</h4>
                                 <ul>
-                                    <li>Desarrollo de estrategia de ciberseguridad.</li>
-                                    <li>Gestión de equipos y tecnología.</li>
-                                    <li>Evaluación continua de riesgos.</li>
-                                    <li>Reportes de cumplimiento para la dirección.</li>
+                                    <li>Creación de workflows en <strong>n8n</strong>.</li>
+                                    <li>Agentes de IA para atención al cliente.</li>
+                                    <li>Integración de sistemas (CRM, Sheets).</li>
+                                    <li>Automatización de reportes y alertas.</li>
                                 </ul>
                                 <a href="#contacto" class="service-button back-button">Contactar ahora</a>
                                 <button class="back-to-front flip-button">Volver</button>
@@ -178,16 +228,70 @@
             </div>
         </section>
 
-        <section id="nosotros" class="section about">
-            <div class="container about-content-grid">
-                <div class="about-text-content">
-                    <h2 class="section-title">¿Quiénes somos?</h2>
-                    <p>LOOM.IA nació con el propósito de democratizar la ciberseguridad en Argentina. Sabemos que las PYMES son el motor de la economía, por eso ofrecemos soluciones accesibles y efectivas que antes estaban reservadas solo para grandes corporaciones.</p>
-                    <br>
-                    <p>Somos un equipo de apasionados por la ciberseguridad. Nuestra misión es simple: cuidar tu negocio como si fuera nuestro. Por eso, nos dedicamos a darte la mano y guiarte para que tu empresa esté siempre segura.</p>
-                </div>
-                <div class="about-image-container">
-                    <img src="https://i.ibb.co/pvd0xcPq/Dise-o-sin-t-tulo.png" alt="Imagen del equipo de LOOM.IA" class="about-image">
+        <section id="nosotros" class="section about-tech">
+            <div class="about-bg-glow"></div>
+
+            <div class="container">
+                <div class="about-grid">
+                    
+                    <div class="about-text">
+                        <span class="badge-small">NUESTRA MISIÓN</span>
+                        <h2 class="gradient-title">Democratizar la Ciberseguridad, la Información y la Tecnología</h2>
+                        
+                        <p class="highlight-text">
+                            En <strong>LOOM.IA</strong>, creemos que la seguridad y las implementaciones tecnológicas de nivel corporativo no debería ser un lujo exclusivo de las grandes empresas.
+                        </p>
+                        
+                        <p>
+                            Somos un equipo de especialistas liderado por auditores <strong>ISO 27001</strong>. Transformamos la complejidad técnica en estrategias claras para PYMES. No solo protegemos tus datos; protegemos la continuidad y el futuro de tu negocio con la potencia de la Inteligencia Artificial.
+                        </p>
+
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">+5</span>
+                                <span class="stat-label">Años de<br>Experiencia</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Monitoreo<br>Activo</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Enfoque<br>PYME</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual">
+                        <div class="tech-card">
+                            <div class="card-header">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                            </div>
+                            <div class="card-body">
+                                <div class="profile-icon-placeholder">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h3>Marcos Acosta</h3>
+                                <p class="role">Founder & Lead Auditor</p>
+                                <div class="tech-skills">
+                                    <span>ISO 27001</span>
+                                    <span>Cybersecurity</span>
+                                    <span>AI Automatition</span>
+                                </div>
+                                <div class="code-snippet">
+                                    <code>> System.Status: Secure</code>
+                                    <code>> Monitoring: Active</code>
+                                    <code>> AI_Agents: Deployed</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-shield">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -261,8 +365,6 @@
     <script src="main.js"></script>
 </body>
 </html> 
-
-
 
 
 
