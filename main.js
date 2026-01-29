@@ -62,6 +62,7 @@ const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        const submitBtn = this.querySelector('.submit-button');
 
         // Get form data
         const formData = new FormData(this);
@@ -100,14 +101,25 @@ if (contactForm) {
             return;
         }
 
-        // Show success message with personalization
-        alert(`¡Gracias ${data.nombre}! Hemos recibido tu consulta sobre ${data.empresa}. Un especialista de LOOM.IA se pondrá en contacto contigo en las próximas 24 horas al ${data.telefono}.`);
+        // Add loading state
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
 
-        // Here you would normally send to backend
-        console.log('Form data:', data);
+        // Simulate network request (1.5 seconds delay)
+        setTimeout(() => {
+            // Show success message with personalization
+            alert(`¡Gracias ${data.nombre}! Hemos recibido tu consulta sobre ${data.empresa}. Un especialista de LOOM.IA se pondrá en contacto contigo en las próximas 24 horas al ${data.telefono}.`);
 
-        // Reset form
-        this.reset();
+            // Here you would normally send to backend
+            console.log('Form data:', data);
+
+            // Reset form
+            this.reset();
+
+            // Remove loading state
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+        }, 1500);
     });
 }
 
@@ -126,18 +138,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe service cards for animations
-document.querySelectorAll('.service-card').forEach(card => {
-    observer.observe(card);
+// Observe service cards and accordion items for animations
+document.querySelectorAll('.service-card, .accordion-item').forEach(el => {
+    observer.observe(el);
 });
 
-// Card Flip Effect
-document.querySelectorAll('.flip-button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const card = e.target.closest('.service-card');
-        if (card) {
-            card.classList.toggle('flipped');
+// Accordion Functionality
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const body = item.querySelector('.accordion-body');
+
+        // Toggle active class
+        item.classList.toggle('active');
+
+        // Smooth height transition
+        if (item.classList.contains('active')) {
+            body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+            body.style.maxHeight = null;
         }
     });
 });
@@ -237,3 +256,21 @@ async function loadArticle(articleId) {
         </div>
     `;
 }
+
+// Email Obfuscation Logic
+const emailElement = document.getElementById('contact-email');
+if (emailElement) {
+    emailElement.addEventListener('click', function() {
+        const user = this.getAttribute('data-user');
+        const domain = this.getAttribute('data-domain');
+        const email = \\@\\;
+        
+        this.textContent = email;
+        this.style.textDecoration = 'none';
+        this.style.cursor = 'default';
+        
+        // Optional: Open mailto
+        window.location.href = \mailto:\\;
+    });
+}
+
