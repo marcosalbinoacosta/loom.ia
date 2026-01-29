@@ -260,17 +260,21 @@ async function loadArticle(articleId) {
 // Email Obfuscation Logic
 const emailElement = document.getElementById('contact-email');
 if (emailElement) {
-    emailElement.addEventListener('click', function() {
+    emailElement.addEventListener('click', function () {
         const user = this.getAttribute('data-user');
         const domain = this.getAttribute('data-domain');
-        const email = \\@\\;
-        
+        const email = `${user}@${domain}`;
+
         this.textContent = email;
         this.style.textDecoration = 'none';
         this.style.cursor = 'default';
-        
+
         // Optional: Open mailto
-        window.location.href = \mailto:\\;
+        window.location.href = `mailto:${email}`;
     });
 }
+
+
+// Expose functions to global window object
+window.loadBlogPosts = loadBlogPosts;
 
