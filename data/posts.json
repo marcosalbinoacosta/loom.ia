@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "slug": "ia-en-pymes",
+        "title": "La Democratización de la Capacidad",
+        "subtitle": "Análisis del Nuevo Paradigma Tecnológico en la PyME",
+        "description": "La inteligencia artificial cambia las reglas: de almacenar datos a generar soluciones. Un análisis sobrio sobre cómo este cambio de paradigma redefine la competitividad y el rol estratégico del talento humano.",
+        "content": "<p>Durante décadas, la brecha competitiva entre una gran corporación y una pequeña empresa (PyME) no se basaba solo en el capital financiero, sino en el capital tecnológico y cognitivo. Las grandes empresas tenían departamentos de TI, analistas de datos y equipos creativos; las pequeñas tenían intuición y hojas de cálculo.</p><p>La llegada de la Inteligencia Artificial (IA) y la automatización \"low-code\" no representa simplemente una mejora incremental en el software existente. Representa un cambio de paradigma fundamental: la democratización de las capacidades de alto nivel.</p><p>A continuación, analizamos cómo se ha transformado la estructura operativa en este nuevo escenario.</p><h3>1. Del \"Software de Registro\" al \"Software de Acción\"</h3><p>Históricamente, la tecnología en la PyME era pasiva. Un CRM guardaba datos; un sistema contable registraba facturas. La tecnología esperaba a que el humano introdujera información y luego la consultara.</p><p><strong>El Nuevo Paradigma:</strong> Hoy, la tecnología es activa y generativa. La implementación de IA permite que los sistemas no solo almacenen información, sino que actúen sobre ella.</p><p><strong>Antes:</strong> El dueño revisaba el stock manualmente al final de la semana.</p><p><strong>Ahora:</strong> Un agente de IA analiza patrones de venta, predice un quiebre de stock y redacta el pedido al proveedor para que el humano solo tenga que aprobarlo. La tecnología ha pasado de ser un repositorio a ser un co-piloto operativo.</p><h3>2. La Barrera del Lenguaje Técnico: El Fin de la Sintaxis</h3><p>Quizás el aspecto más democratizador de la IA (específicamente los LLMs) es la eliminación de la barrera de programación. Hasta hace poco, automatizar un proceso requería saber código (Python, SQL) o contratar a alguien que supiera.</p><p><strong>El Análisis:</strong> Ahora, el lenguaje de programación es el lenguaje natural (español, inglés, etc.). Un gerente puede pedirle a su base de datos: \"Muéstrame la tendencia de ventas de los últimos tres meses comparada con el año anterior\" sin saber escribir una sola línea de código. Esto devuelve el control de los datos al dueño del negocio, eliminando intermediarios técnicos para la toma de decisiones diaria.</p><h3>3. Escalabilidad Asimétrica</h3><p>Tradicionalmente, el crecimiento de una PyME era lineal y costoso: para atender al doble de clientes, necesitabas el doble de personal administrativo.</p><p><strong>La Realidad Actual:</strong> La integración de automatizaciones (vía herramientas como n8n o Zapier potenciadas por IA) permite una escalabilidad asimétrica. Una empresa de 5 personas puede gestionar un volumen de interacciones, documentos y procesos que antes requería un equipo de 20. La tecnología permite \"clonar\" la capacidad operativa de los empleados existentes, liberándolos de la carga repetitiva para enfocarse en la estrategia y el trato humano complejo.</p><h3>4. El Desafío Realista: La Curaduría Humana</h3><p>Para mantener este análisis en un terreno realista, debemos abordar el nuevo cuello de botella. Si antes el problema era la creación (de contenido, de código, de análisis), hoy el problema es la verificación.</p><p>La implementación de IA en la pequeña empresa no elimina el error humano; a veces introduce \"alucinaciones\" tecnológicas. Por lo tanto, el rol del profesional en la PyME evoluciona: deja de ser un operario que hace para convertirse en un editor que supervisa. La tecnología no reemplaza el criterio; lo exige con mayor rigor.</p><h3>Conclusión</h3><p>La \"Era de la IA\" en las pequeñas empresas no se trata de robots futuristas, sino de accesibilidad. Herramientas que antes costaban miles de dólares al mes ahora son accesibles por suscripciones mínimas o modelos de código abierto.</p><p>Estamos presenciando el nivelamiento del terreno de juego más significativo en la historia empresarial moderna. La ventaja competitiva ya no reside en quién tiene acceso a la tecnología, sino en quién tiene la claridad estratégica para implementarla con sensatez, ética y propósito.</p>",
+        "image": "https://i.postimg.cc/Xq1vrbGn/Gemini-Generated-Image-wjngcuwjngcuwjng.png",
+        "author": "Marcos Acosta",
+        "authorRole": "Founder & Lead Auditor @ LOOM.IA",
+        "authorImage": "https://i.pravatar.cc/150?u=marcos",
+        "date": "15 Ene 2026",
+        "category": "Tecnología"
+    },
+    {
+        "id": 2,
+        "slug": "phishing-ransomware-proteccion",
+        "title": "Phishing y Ransomware: ¿Cómo proteger a tu equipo?",
+        "subtitle": "El eslabón más débil siempre será el humano. Aquí te explicamos cómo reforzarlo.",
+        "description": "Dos de las amenazas más comunes para empresas. Te mostramos cómo identificarlas a tiempo y los pasos que debes seguir para mitigar los riesgos.",
+        "content": "<p>Podés tener el firewall más caro del mundo, pero si Juan de Contabilidad abre un PDF llamado <em>'Factura_Vencida_URGENTE.exe'</em>, estás en problemas.</p><h3>La anatomía de un ataque moderno</h3><p>El Phishing ya no es ese correo mal escrito del 'Príncipe Nigeriano'. Ahora utilizan IA para redactar correos perfectos, suplantando a proveedores reales o incluso a tu CEO.</p><h3>¿Qué es el Ransomware?</h3><p>Es un secuestro digital. Cifran tus archivos y piden rescate. <strong>Nuestra recomendación oficial: NO PAGAR.</strong> Pagar financia el crimen y no garantiza recuperar los datos.</p><h4>3 Medidas de Protección Inmediata</h4><ol><li><strong>Backups inmutables:</strong> Copias de seguridad que ni siquiera el administrador puede borrar fácilmente.</li><li><strong>Capacitación continua:</strong> Simulacros de phishing mensuales (no anuales).</li><li><strong>Principio de menor privilegio:</strong> Que nadie tenga acceso a todo.</li></ol>",
+        "image": "https://i.postimg.cc/QMhMqQG1/Gemini-Generated-Image-6u5pet6u5pet6u5p.png",
+        "author": "Sofia Martinez",
+        "authorRole": "Cybersecurity Analyst",
+        "authorImage": "https://i.pravatar.cc/150?u=sofia",
+        "date": "10 Ene 2026",
+        "category": "Amenazas"
+    },
+    {
+        "id": 3,
+        "slug": "guia-iso-27001",
+        "title": "Guía rápida para la certificación ISO 27001",
+        "subtitle": "No es solo un sello para la web, es la estructura vertebral de tu seguridad.",
+        "description": "Lograr la certificación ISO 27001 es un paso crucial. Conoce los requisitos principales y cómo nuestro software facilita el proceso de cumplimiento.",
+        "content": "<p>La norma ISO 27001 es el estándar de oro en seguridad de la información. Muchas PYMES piensan que es 'demasiado grande' para ellas. Falso.</p><h3>¿Por qué certificar?</h3><p>Más allá del prestigio, la ISO 27001 te obliga a ordenar la casa. Te hace mapear activos, evaluar riesgos y definir procesos. Es la diferencia entre apagar incendios y prevenir incendios.</p><h3>Fases simplificadas</h3><ul><li><strong>Fase 1: Diagnóstico.</strong> ¿Dónde estamos parados?</li><li><strong>Fase 2: Diseño del SGSI.</strong> Crear las políticas (no copiarlas de internet).</li><li><strong>Fase 3: Implementación.</strong> Hacer que la gente cumpla las políticas.</li><li><strong>Fase 4: Auditoría Interna.</strong> Revisarnos a nosotros mismos con rigor.</li></ul><p>En LOOM.IA simplificamos este proceso burocrático con agentes de IA que redactan la documentación base por vos.</p>",
+        "image": "https://i.postimg.cc/PfZBdB8f/Gemini-Generated-Image-223hpz223hpz223h.png",
+        "author": "Marcos Acosta",
+        "authorRole": "Founder & Lead Auditor @ LOOM.IA",
+        "authorImage": "https://i.pravatar.cc/150?u=marcos",
+        "date": "05 Ene 2026",
+        "category": "Normativas"
+    },
+    {
+        "id": 4,
+        "slug": "prueba-tecnica-estilos",
+        "title": "Prueba de Tecnología: Estilos y Estructura",
+        "subtitle": "Verificación de renderizado de componentes técnicos y bloques de código.",
+        "description": "Este artículo es una prueba de concepto para visualizar cómo se comportan los estilos CSS en los posts del blog.",
+        "content": "<p>Este post verifica la integración de estilos definidos en <code>styles.css</code>.</p><h3>1. Bloques de Código</h3><div class=\"code-snippet\"><code>def seguridad_audit(sistema):</code><code>    return sistema.is_secured()</code></div><h3>2. Texto Destacado</h3><div class=\"highlight-text\"><strong>NOTA:</strong> Este bloque debe destacarse.</div><h3>3. Listas</h3><ul><li>Fuentes</li><li>Espaciado</li></ul><blockquote>“Calidad es hacerlo bien cuando nadie mira.”</blockquote>",
+        "image": "https://i.postimg.cc/WbBJLqrf/Gemini-Generated-Image-x618n7x618n7x618-1.png",
+        "author": "System Admin",
+        "authorRole": "DevOps & QA",
+        "authorImage": "https://ui-avatars.com/api/?name=System+Admin&background=0D8ABC&color=fff",
+        "date": "18 Ene 2026",
+        "category": "Desarrollo"
+    }
+]

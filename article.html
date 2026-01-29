@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículo - LOOM.IA</title>
+    <meta name="description" content="Artículo de LOOM.IA">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Open Graph Tags (Dynamic placeholders will be updated by JS if possible, but mainly for static structure) -->
+    <meta property="og:type" content="article">
+</head>
+
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="LOOM.IA - Ir al inicio">
+                <img src="https://i.postimg.cc/XNrRM23P/img-removebg-preview.png" alt="Logo de LOOM.IA"
+                    class="logo-img">
+                <span class="logo-text">LOOM.<span class="accent-text">IA</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="header-social-icons">
+                <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <button class="mobile-menu" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-container" id="article-container">
+            <!-- Content will be injected here by JS -->
+            <div class="loading-spinner">Cargando artículo...</div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LOOM.IA. Todos los derechos reservados. Ciberseguridad para PYMES.</p>
+        </div>
+    </footer>
+
+    <script src="data/posts.js"></script>
+    <script src="main.js"></script>
+    <script>
+        // Init logic specifically for article page
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            if (articleId) {
+                loadArticle(articleId);
+            } else {
+                document.getElementById('article-container').innerHTML = '<p>Artículo no especificado.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>

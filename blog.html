@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - LOOM.IA</title>
+    <meta name="description"
+        content="Lee los últimos artículos de LOOM.IA sobre ciberseguridad, tendencias, consejos y noticias para PYMES argentinas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
+            <a href="index.html" class="logo" aria-label="LOOM.IA - Ir al inicio">
+                <img src="https://i.postimg.cc/WbBJLqrf/Gemini-Generated-Image-x618n7x618n7x618-1.png"
+                    alt="Logo de LOOM.IA" class="logo-img">
+                <span class="logo-text">LOOM.<span class="accent-text">IA</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+                <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+                <li><a href="index.html#casos" aria-label="Ir a la sección de casos de éxito">Casos de Éxito</a></li>
+                <li><a href="blog.html" class="active" aria-label="Ir a la página del blog">Blog</a></li>
+                <li><a href="index.html#nosotros" aria-label="Ir a la sección sobre nosotros">Sobre nosotros</a></li>
+                <li><a href="index.html#contacto" aria-label="Ir a la sección de contacto">Contacto</a></li>
+            </ul>
+
+            <div class="header-social-icons">
+                <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <button class="mobile-menu" aria-label="Abrir menú de navegación móvil" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section blog-hero" role="main" aria-labelledby="blog-title">
+            <div class="container">
+                <h1 id="blog-title">Blog de Ciberseguridad</h1>
+                <p class="subtitle">Consejos, análisis y las últimas noticias para proteger tu negocio.</p>
+            </div>
+        </section>
+
+        <section class="section blog-posts">
+            <div class="container">
+                <div class="posts-grid" id="posts-grid">
+                    <div class="loading-spinner">Cargando artículos...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LOOM.IA. Todos los derechos reservados. Ciberseguridad para PYMES.</p>
+        </div>
+    </footer>
+
+    <script src="data/posts.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBlogPosts();
+        });
+    </script>
+</body>
+
+</html>
