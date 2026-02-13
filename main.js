@@ -1,7 +1,6 @@
 // Smooth scrolling for internal navigation links on the same page
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        // Only run for links pointing to sections on the same page
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -57,7 +56,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Enhanced form submission with better validation
+// Enhanced form submission with Turnstile token capture
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
@@ -72,32 +71,41 @@ if (contactForm) {
 
         for (let [key, value] of formData.entries()) {
             data[key] = value.trim();
+        }
 
-            // Validation
-            if (key === 'nombre' && !data[key]) {
-                errors.push('El nombre es requerido');
-                isValid = false;
-            }
-            if (key === 'empresa' && !data[key]) {
-                errors.push('El nombre de la empresa es requerido');
-                isValid = false;
-            }
-            if (key === 'email' && (!data[key] || !data[key].includes('@'))) {
-                errors.push('Un email válido es requerido');
-                isValid = false;
-            }
-            if (key === 'telefono' && !data[key]) {
-                errors.push('El teléfono es requerido para contactarte');
-                isValid = false;
-            }
-            if (key === 'mensaje' && (!data[key] || data[key].length < 10)) {
-                errors.push('El mensaje debe tener al menos 10 caracteres');
-                isValid = false;
-            }
+        // Validation
+        if (!data['nombre']) {
+            errors.push('El nombre es requerido');
+            isValid = false;
+        }
+        if (!data['empresa']) {
+            errors.push('El nombre de la empresa es requerido');
+            isValid = false;
+        }
+        if (!data['email'] || !data['email'].includes('@')) {
+            errors.push('Un email válido es requerido');
+            isValid = false;
+        }
+        if (!data['telefono']) {
+            errors.push('El teléfono es requerido para contactarte');
+            isValid = false;
+        }
+        if (!data['mensaje'] || data['mensaje'].length < 10) {
+            errors.push('El mensaje debe tener al menos 10 caracteres');
+            isValid = false;
+        }
+
+        // ── Capturar token de Cloudflare Turnstile ──────────────────────────
+        // El widget agrega un <input name="cf-turnstile-response"> cuando el
+        // usuario pasa el desafío. Si no está presente, el envío se rechaza.
+        const turnstileToken = data['cf-turnstile-response'];
+        if (!turnstileToken) {
+            errors.push('Por favor completá el desafío de seguridad (Turnstile)');
+            isValid = false;
         }
 
         if (!isValid) {
-            alert('Por favor completa los siguientes campos:\n• ' + errors.join('\n• '));
+            alert('Por favor completá los siguientes campos:\n• ' + errors.join('\n• '));
             return;
         }
 
@@ -105,21 +113,48 @@ if (contactForm) {
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
-        // Simulate network request (1.5 seconds delay)
-        setTimeout(() => {
-            // Show success message with personalization
-            alert(`¡Gracias ${data.nombre}! Hemos recibido tu consulta sobre ${data.empresa}. Un especialista de LOOM.IA se pondrá en contacto contigo en las próximas 24 horas al ${data.telefono}.`);
+        // Send to FormSubmit (AJAX)
+        fetch("https://formsubmit.co/ajax/loomia.contacto@gmail.com", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                nombre: data.nombre,
+                empresa: data.empresa,
+                email: data.email,
+                telefono: data.telefono,
+                mensaje: data.mensaje,
+                // Token de Turnstile — FormSubmit lo valida automáticamente
+                'cf-turnstile-response': turnstileToken,
+                _subject: `Nueva consulta de ${data.nombre} (${data.empresa})`,
+                _captcha: "false"   // Desactiva el reCAPTCHA propio de FormSubmit (usamos Turnstile)
+            })
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success === 'true' || result.success === true) {
+                alert(`¡Gracias ${data.nombre}! Hemos recibido tu consulta sobre ${data.empresa}. Un especialista de LOOM.IA se pondrá en contacto en las próximas 24 horas.`);
+                contactForm.reset();
 
-            // Here you would normally send to backend
-            console.log('Form data:', data);
-
-            // Reset form
-            this.reset();
-
-            // Remove loading state
+                // Reiniciar el widget de Turnstile para que el usuario pueda volver a enviar
+                if (typeof turnstile !== 'undefined') {
+                    turnstile.reset();
+                }
+            } else {
+                alert('Hubo un problema al enviar el formulario. Por favor intentá de nuevo o escribinos directamente a loomia.contacto@gmail.com');
+                console.error('FormSubmit error:', result);
+            }
+        })
+        .catch(error => {
+            alert('Error de red. Por favor revisá tu conexión e intentá nuevamente.');
+            console.error('Error al enviar formulario:', error);
+        })
+        .finally(() => {
             submitBtn.classList.remove('loading');
             submitBtn.disabled = false;
-        }, 1500);
+        });
     });
 }
 
@@ -138,7 +173,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe service cards and accordion items for animations
 document.querySelectorAll('.service-card, .accordion-item').forEach(el => {
     observer.observe(el);
 });
@@ -149,10 +183,8 @@ document.querySelectorAll('.accordion-header').forEach(header => {
         const item = header.parentElement;
         const body = item.querySelector('.accordion-body');
 
-        // Toggle active class
         item.classList.toggle('active');
 
-        // Smooth height transition
         if (item.classList.contains('active')) {
             body.style.maxHeight = body.scrollHeight + "px";
         } else {
@@ -160,18 +192,16 @@ document.querySelectorAll('.accordion-header').forEach(header => {
         }
     });
 });
+
 // =========================================
 // Blog System Logic
 // =========================================
 
 async function fetchPosts() {
     try {
-        // Attempt to use global variable first (best for local/file protocol)
         if (typeof BLOG_POSTS !== 'undefined') {
             return BLOG_POSTS;
         }
-
-        // Fallback to fetch for server environments if variable is missing
         const response = await fetch('data/posts.json');
         if (!response.ok) {
             throw new Error('No se pudo cargar los datos del blog');
@@ -225,17 +255,13 @@ async function loadArticle(articleId) {
         return;
     }
 
-    // Set page title (tab)
     document.title = `${post.title} - LOOM.IA`;
 
-    // Render Article Content (LinkedIn Style)
     container.innerHTML = `
         <header class="article-header">
             <img src="${post.image}" alt="${post.title}" class="article-cover-image">
-            
             <h1 class="article-title">${post.title}</h1>
             ${post.subtitle ? `<h2 class="article-subtitle">${post.subtitle}</h2>` : ''}
-
             <div class="author-profile">
                 <img src="${post.authorImage || 'assets/img/default-avatar.png'}" alt="${post.author}" class="author-avatar" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(post.author)}&background=random'">
                 <div class="author-info">
@@ -245,11 +271,9 @@ async function loadArticle(articleId) {
                 </div>
             </div>
         </header>
-
         <div class="article-content">
             ${post.content}
         </div>
-
         <div style="margin-top: 4rem; text-align: center;">
             <p>¿Te gustó este artículo? Compartilo.</p>
             <a href="blog.html" class="back-link">&larr; Volver a todos los artículos</a>
@@ -264,17 +288,55 @@ if (emailElement) {
         const user = this.getAttribute('data-user');
         const domain = this.getAttribute('data-domain');
         const email = `${user}@${domain}`;
-
         this.textContent = email;
         this.style.textDecoration = 'none';
         this.style.cursor = 'default';
-
-        // Optional: Open mailto
         window.location.href = `mailto:${email}`;
     });
 }
 
+// =========================================
+// Enhanced About Us Section Animations
+// =========================================
+const aboutSection = document.querySelector('.about-tech');
+if (aboutSection) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutSection.classList.add('animate');
+                const statNumbers = aboutSection.querySelectorAll('.stat-number');
+                statNumbers.forEach((stat, index) => {
+                    setTimeout(() => {
+                        stat.classList.add('counting');
+                    }, 500 + (index * 200));
+                });
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '0px' });
+
+    aboutObserver.observe(aboutSection);
+
+    const techCard = aboutSection.querySelector('.tech-card');
+    if (techCard) {
+        aboutSection.addEventListener('mousemove', (e) => {
+            if (!aboutSection.classList.contains('animate')) return;
+            const rect = techCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const xCenter = rect.width / 2;
+            const yCenter = rect.height / 2;
+            const rotateX = ((y - yCenter) / yCenter) * -5;
+            const rotateY = ((x - xCenter) / xCenter) * 5;
+            techCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        aboutSection.addEventListener('mouseleave', () => {
+            if (!aboutSection.classList.contains('animate')) return;
+            techCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    }
+}
 
 // Expose functions to global window object
 window.loadBlogPosts = loadBlogPosts;
-
