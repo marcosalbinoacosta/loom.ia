@@ -19,6 +19,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 let isMenuOpen = false;
 
+function closeMenu() {
+    navLinks.classList.remove('is-open');
+    mobileMenu.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-label', 'Abrir menú de navegación móvil');
+    isMenuOpen = false;
+}
+
 mobileMenu.addEventListener('click', () => {
     isMenuOpen = !isMenuOpen;
 
@@ -27,20 +34,21 @@ mobileMenu.addEventListener('click', () => {
         mobileMenu.setAttribute('aria-expanded', 'true');
         mobileMenu.setAttribute('aria-label', 'Cerrar menú de navegación móvil');
     } else {
-        navLinks.classList.remove('is-open');
-        mobileMenu.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-label', 'Abrir menú de navegación móvil');
-        isMenuOpen = false;
+        closeMenu();
     }
+});
+
+// Close mobile menu when clicking a nav link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (isMenuOpen) closeMenu();
+    });
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target) && isMenuOpen) {
-        navLinks.classList.remove('is-open');
-        mobileMenu.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-label', 'Abrir menú de navegación móvil');
-        isMenuOpen = false;
+        closeMenu();
     }
 });
 
@@ -82,7 +90,7 @@ if (contactForm) {
             errors.push('El nombre de la empresa es requerido');
             isValid = false;
         }
-        if (!data['email'] || !data['email'].includes('@')) {
+        if (!data['email'] || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data['email'])) {
             errors.push('Un email válido es requerido');
             isValid = false;
         }
@@ -173,7 +181,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .accordion-item').forEach(el => {
+document.querySelectorAll('.accordion-item').forEach(el => {
     observer.observe(el);
 });
 
@@ -242,7 +250,7 @@ async function loadArticle(articleId) {
     if (!container) return;
 
     const posts = await fetchPosts();
-    const post = posts.find(p => p.id == articleId);
+    const post = posts.find(p => String(p.id) === String(articleId));
 
     if (!post) {
         container.innerHTML = `
@@ -267,7 +275,7 @@ async function loadArticle(articleId) {
                 <div class="author-info">
                     <span class="author-name">${post.author}</span>
                     <span class="author-role">${post.authorRole || 'Colaborador'}</span>
-                    <span class="article-meta">Publicado el ${post.date} • 5 min de lectura</span>
+                    <span class="article-meta">Publicado el ${post.date} • ${Math.max(1, Math.ceil(post.content.replace(/<[^>]+>/g, '').split(/\s+/).length / 200))} min de lectura</span>
                 </div>
             </div>
         </header>
@@ -340,3 +348,4 @@ if (aboutSection) {
 
 // Expose functions to global window object
 window.loadBlogPosts = loadBlogPosts;
+window.loadArticle = loadArticle;
