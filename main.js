@@ -225,7 +225,8 @@ async function loadBlogPosts() {
     const grid = document.getElementById('posts-grid');
     if (!grid) return;
 
-    const posts = await fetchPosts();
+    const allPosts = await fetchPosts();
+    const posts = allPosts.filter(p => p.active !== false);
 
     if (posts.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No hay artículos disponibles por el momento.</p>';
@@ -249,8 +250,8 @@ async function loadArticle(articleId) {
     const container = document.getElementById('article-container');
     if (!container) return;
 
-    const posts = await fetchPosts();
-    const post = posts.find(p => String(p.id) === String(articleId));
+    const allPosts = await fetchPosts();
+    const post = allPosts.find(p => String(p.id) === String(articleId) && p.active !== false);
 
     if (!post) {
         container.innerHTML = `
