@@ -266,6 +266,14 @@ async function loadArticle(articleId) {
 
     document.title = `${post.title} - LOOM.IA`;
 
+    const absoluteImage = `${window.location.origin}/${post.image}`;
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage) ogImage.setAttribute('content', absoluteImage);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', `${post.title} - LOOM.IA`);
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', post.description);
+
     container.innerHTML = `
         <header class="article-header">
             <img src="${post.image}" alt="${post.title}" class="article-cover-image">
@@ -283,8 +291,22 @@ async function loadArticle(articleId) {
         <div class="article-content">
             ${post.content}
         </div>
-        <div style="margin-top: 4rem; text-align: center;">
-            <p>¿Te gustó este artículo? Compartilo.</p>
+        <div class="article-share">
+            <p class="article-share-label">¿Te gustó este artículo? Compartilo.</p>
+            <div class="article-share-buttons">
+                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' - ' + window.location.href)}" target="_blank" rel="noopener" class="share-btn share-whatsapp" aria-label="Compartir en WhatsApp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener" class="share-btn share-linkedin" aria-label="Compartir en LinkedIn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener" class="share-btn share-x" aria-label="Compartir en X">
+                    <i class="fab fa-x-twitter"></i> X
+                </a>
+                <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(window.location.href).then(() => { this.textContent = '¡Copiado!'; setTimeout(() => { this.innerHTML = '<i class=\\'fas fa-link\\'></i> Copiar link'; }, 2000); })" aria-label="Copiar link">
+                    <i class="fas fa-link"></i> Copiar link
+                </button>
+            </div>
             <a href="blog.html" class="back-link">&larr; Volver a todos los artículos</a>
         </div>
     `;
