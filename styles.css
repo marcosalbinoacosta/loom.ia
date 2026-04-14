@@ -1,9 +1,20 @@
 :root {
     --primary-blue: #1E3B5E;
     --accent-green: #64B54C;
+    --accent-green-dark: #2E7D22;
     --light-gray: #F2F4F8;
     --dark-text: #4A4A4A;
     --white: #FFFFFF;
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-display: swap;
 }
 
 * {
@@ -73,7 +84,7 @@ nav {
 }
 
 .logo .accent-text {
-    color: var(--accent-green);
+    color: var(--accent-green-dark);
 }
 
 .nav-links {
@@ -239,7 +250,7 @@ main {
 
 .cta-button {
     display: inline-block;
-    background: var(--accent-green);
+    background: var(--accent-green-dark);
     color: var(--white);
     padding: 1rem 2.5rem;
     text-decoration: none;
@@ -528,7 +539,7 @@ main {
 
 .form-help {
     font-size: 0.875rem;
-    color: #888;
+    color: #595959;
     margin-top: 0.25rem;
     display: block;
 }
@@ -557,7 +568,7 @@ main {
 }
 
 .submit-button {
-    background: var(--accent-green);
+    background: var(--accent-green-dark);
     color: var(--white);
     padding: 1rem 2rem;
     border: none;
@@ -801,18 +812,18 @@ footer {
 
 .cta-button.secondary {
     background: transparent;
-    border: 2px solid var(--accent-green);
-    color: var(--accent-green);
+    border: 2px solid var(--accent-green-dark);
+    color: var(--accent-green-dark);
     box-shadow: none;
 }
 
 .cta-button.secondary:hover {
-    background: var(--accent-green);
+    background: var(--accent-green-dark);
     color: var(--white);
 }
 
 .trust-bar {
-    background: var(--accent-green);
+    background: var(--accent-green-dark);
     color: var(--white);
     padding: 1rem 0;
     position: relative;

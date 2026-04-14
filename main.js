@@ -327,6 +327,23 @@ if (emailElement) {
 }
 
 // =========================================
+// Lazy-load video when section is near viewport
+// =========================================
+const lazyVideo = document.querySelector('.about-video-bg');
+if (lazyVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                lazyVideo.preload = 'auto';
+                lazyVideo.load();
+                videoObserver.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '200px' });
+    videoObserver.observe(lazyVideo);
+}
+
+// =========================================
 // Enhanced About Us Section Animations
 // =========================================
 const aboutSection = document.querySelector('.about-tech');
