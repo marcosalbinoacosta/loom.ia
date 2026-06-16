@@ -1,0 +1,12 @@
+{
+  "name": "loom-ia",
+  "version": "1.0.0",
+  "description": "Sitio LOOM.IA",
+  "private": true,
+  "scripts": {
+    "blog": "node scripts/blog.js",
+    "blog:list": "node scripts/blog.js list",
+    "publish": "node scripts/blog.js publish",
+    "unpublish": "node scripts/blog.js unpublish"
+  }
+}
