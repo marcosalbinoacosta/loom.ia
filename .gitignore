@@ -1,0 +1,4 @@
+# Borradores del blog — NO deben publicarse.
+# Contienen posts con active:false que no deben llegar al cliente.
+data/drafts.js
+data/drafts.json
